@@ -27,16 +27,17 @@ const { NotImplementedError } = require('../extensions/index.js');
 
   enqueue( value ) {
     let newElement = new ListNode(value);
-    if (!this.size) {
+    if (this.size===0) {
       this.top = newElement;
-      this.last = this.top;
+      this.last = newElement;
+      this.size = 1;
     }
     else {
       this.last.next = newElement;
-      this.last = newElement;
+      this.last = this.last.next;
+      this.size++;
     }
-    this.size++;
-    
+    return this.top;
   }
 
   dequeue() {
