@@ -71,16 +71,16 @@ module.exports = class BinarySearchTree {
   remove(data) {
     this.wood = removeNode(this.wood, data);
 
-    function removeNode(node, value) {
+    function removeNode(node, date) {
       if (!node){
         return null;
       }
       
-      if (value < node.data){
-        node.left = removeNode(node.left, value);
+      if (date < node.data){
+        node.left = removeNode(node.left, date);
         return node;
-      } else if (node.data < value){
-        node.right = removeNode(node.right, value);
+      } else if (node.data < date){
+        node.right = removeNode(node.right, date);
         return node;
       } else {
         if (!node.left && !node.right){
