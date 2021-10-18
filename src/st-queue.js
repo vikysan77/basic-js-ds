@@ -29,26 +29,22 @@ const { NotImplementedError } = require('../extensions/index.js');
     const newElement = new ListNode(value);
     if (!this.size) {
       this.top = newElement;
-      this.last = newElement;
+      this.last = this.top;
     }
     else {
       this.last.next = newElement;
       this.last = newElement;
     }
-    this.top++;
-    return this;
+    this.size++;
+    
   }
 
   dequeue() {
-    if (!this.top) 
-    return null;
-    const deleted = this.top;
-    if (this.top === this.last) {
-      this.last = null;
-    }
+    let current = this.top;
     this.top = this.top.next;
     this.size--;
-    return deleted.value;
+
+    return current.value;
   }
 
 }
